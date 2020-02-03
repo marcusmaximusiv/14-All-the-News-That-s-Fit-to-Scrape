@@ -15,13 +15,4 @@ $("#fetch_articles").on("click", function () {
   $("#prompt").append("<div>" + "<strong>" +
     "Success!" + "</strong> " + "" + "You pulled new articles!"
     + "</div >");
-
-  app.get("/", function (req, res) {
-
-    axios.get("https://www.nytimes.com").then(function (response) {
-      var $ = cheerio.load(response.data);
-      console.log(response.data);
-    });
-    console.log(res);
-  });
 });
