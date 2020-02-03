@@ -9,7 +9,7 @@ var PORT = 3000;
 var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("./public"));
+app.use(express.static("public"));
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 $("#fetch_articles").on("click", function () {
@@ -22,7 +22,7 @@ $("#fetch_articles").on("click", function () {
         console.log(res);
     });
     app.get("*", function (req, res) {
-        res.redirect('./public/index.html');
+        res.redirect('public');
     });
 });
 
