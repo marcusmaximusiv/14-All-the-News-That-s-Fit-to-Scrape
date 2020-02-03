@@ -1,5 +1,5 @@
-var axios = require("axios");
-var cheerio = require("cheerio");
+var axios = ("axios");
+var cheerio = ("cheerio");
 
 $.getJSON("/articles", function (data) {
   for (var i = 0; i < data.length; i++) {
