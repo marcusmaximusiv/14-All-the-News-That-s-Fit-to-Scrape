@@ -12,38 +12,17 @@ app.use(express.json());
 app.use(express.static("./public"));
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
+
+
 app.get("/", function (req, res) {
 
     axios.get("https://www.nytimes.com").then(function (response) {
-
         var $ = cheerio.load(response.data);
         console.log(response.data);
-        $("article h2").each(function (i, element) {
-
-            var result = {};
-            result.title = $(this)
-                .children("a")
-                .text();
-            result.link = $(this)
-                .children("a")
-                .attr("href");
-
-
-            db.Article.create(result)
-                .then(function (dbArticle) {
-                    // View the added result in the console
-                    console.log(dbArticle);
-                })
-                .catch(function (err) {
-                    // If an error occurred, log it
-                    console.log(err);
-                });
-        });
-        res.send("Scrape Complete");
     });
 });
 app.get("*", function (req, res) {
-    res.redirect('/');
+    res.redirect('./public/index.html');
 });
 
 app.listen(PORT, function () {
