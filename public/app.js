@@ -15,6 +15,4 @@ $("#fetch_articles").on("click", function () {
   $("#prompt").append("<div>" + "<strong>" +
     "Success!" + "</strong> " + "" + "You pulled new articles!"
     + "</div >");
-
-
 });
