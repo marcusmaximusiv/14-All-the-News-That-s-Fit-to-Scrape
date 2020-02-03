@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Scraping With Mongoose</title>
+  <style>
+    body {
+      background-color: #F2F6D0;
+    }
+
+    #wrapper {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #articles {
+      display: inline-block;
+      overflow: auto;
+      width: 60%;
+      height: 700px;
+    }
+
+    #notes {
+      float: right;
+      width: 30%;
+    }
+
+    textarea,
+    input {
+      display: block;
+      width: 100%;
+      background-color: #FCF5C7;
+    }
+
+    input {
+      height: 36px;
+      font-size: 24px;
+    }
+
+    textarea {
+      height: 200px;
+      font-size: 18px;
+    }
+
+    #title {
+      text-align: center;
+      background-image: url("https://i.makeagif.com/media/9-20-2015/9eyYMB.gif");
+      background-size: 100%;
+      height: 300px;
+    }
+
+    #article_title {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+    }
+
+    #article_list {
+      background-color: #343a40;
+      color: white;
+    }
+
+    #popup {
+      background-color: #343a40;
+      text-align: center;
+      color: white;
+      border-style: solid;
+      border-color: white;
+    }
+
+    #prompt {
+      text-align: center;
+    }
+
+    #title_contents {
+      border-color: white;
+      border-inline-color: white;
+      color: white;
+      border-style: dotted;
+    }
+
+    #article_list {
+      background-color: #343a40;
+      color: white;
+    }
+
+    #prompt {
+      padding: 5px;
+    }
+
+    .alert alert-success {
+      background-color: green;
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+
+    body {
+      background-color: #343a40;
+    }
+
+    #article_contents {
+      border-style: solid;
+      border-color: white;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <section id="nav">
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="./index.html">Mongodb News Scraper</a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./articles.html">Saved Articles</a>
+            </li>
+            <li class="nav-item">
+              <button type="button" id="fetch_articles">Fetch New Articles</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+    <section id="title">
+      <br />
+      <br />
+      <br />
+      <br />
+      <div id="title_contents">
+        <h1 id="page_title">News Scraper</h1>
+        <p>News at your fingertips</p>
+      </div>
+    </section>
+    <section id="popup">
+      <h2>Status:</h2>
+      <div id="prompt"></div>
+    </section>
+    <section id="article_contents">
+      <section id="article_title">
+        <h1>Articles</h1>
+      </section>
+      <section id="article_list">
+        <div id="articles"></div>
+      </section>
+    </section>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
